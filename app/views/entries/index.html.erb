@@ -1,0 +1,26 @@
+
+<h1>Lançamentos</h1>
+
+<table class="table table-hover table-condensed">
+  <tr>
+    <th>Data</th>
+    <th>Descricao</th>
+    <th>Valor</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @entries.each do |entry| %>
+  <tr>
+    <td><%= entry.data %></td>
+    <td><%= entry.descricao %></td>
+    <td><%= entry.valor %></td>
+    <td><%= link_to 'Editar', edit_entry_path(entry) %></td>
+    <td><%= link_to 'Deletar', entry, method: :delete, data: { confirm: 'Está certo disso?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo Lançamento', new_entry_path %>
